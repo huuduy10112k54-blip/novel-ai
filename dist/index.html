@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duy Nghịch Viết Truyện</title>
+    <!-- Use marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc;
+            --sidebar-bg: #1f1b24;
+            --sidebar-hover: #332940;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Nút Hamburger cho Mobile */
+        #mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: var(--sidebar-bg);
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 500;
+            transition: transform 0.3s ease;
+        }
+
+        #sidebar h2 {
+            padding: 20px;
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--sidebar-hover);
+            color: var(--accent-color);
+        }
+
+        #main-container {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            display: flex;
+            justify-content: center;
+            transition: margin-left 0.3s ease, width 0.3s ease;
+        }
+
+        #content-area {
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            font-size: 18px; /* Cỡ chữ mặc định */
+            transition: font-size 0.2s;
+        }
+
+        /* Nút chỉnh cỡ chữ */
+        .toolbar {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .toolbar button {
+            background-color: var(--sidebar-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .toolbar button:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* Markdown Styles */
+        #content-area h1 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        #content-area h2 {
+            color: #cfbcf2;
+            margin-top: 30px;
+        }
+
+        #content-area blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 0;
+            padding-left: 15px;
+            color: #aaa;
+            background-color: rgba(187, 134, 252, 0.05);
+            padding: 10px 15px;
+        }
+
+        #content-area code {
+            background-color: #2c2c2c;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        #content-area pre {
+            background-color: #2c2c2c;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        #content-area pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        /* Backdrop cho mobile */
+        #mobile-backdrop {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 400;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            #mobile-menu-btn {
+                display: block;
+            }
+            #sidebar {
+                transform: translateX(-100%);
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            #main-container {
+                margin-left: 0;
+                width: 100%;
+            }
+            #content-area {
+                padding: 60px 15px 80px 15px; /* Thêm padding top để không đè nút menu, padding bottom cho toolbar */
+            }
+            .toolbar {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+            }
+            #mobile-backdrop.show {
+                display: block;
+            }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nút Menu Mobile -->
+    <button id="mobile-menu-btn" onclick="toggleSidebar()">☰ Chương</button>
+    <div id="mobile-backdrop" onclick="toggleSidebar()"></div>
+
+    <div id="sidebar">
+        <h2>Duy Nghịch Viết Truyện</h2>
+        <div id="nav-list">
+            <!-- Items injected by JS -->
+            <div class="nav-item">Đang tải danh sách...</div>
+        </div>
+    </div>
+
+    <!-- Nút chỉnh cỡ chữ -->
+    <div class="toolbar">
+        <button onclick="changeFontSize(-2)" title="Thu nhỏ chữ">A-</button>
+        <button onclick="changeFontSize(2)" title="Phóng to chữ">A+</button>
+    </div>
+
+    <div id="main-container">
+        <div id="content-area">
+            <div id="markdown-content">
+                <h1 style="text-align:center; margin-top:50px;">Chào mừng đến với Bản Thảo</h1>
+                <p style="text-align:center;">Hãy chọn một chương bên trái để bắt đầu đọc!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Sidebar trên Mobile
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('mobile-backdrop').classList.toggle('show');
+        }
+
+        // Chỉnh cỡ chữ
+        let currentFontSize = 18;
+        function changeFontSize(step) {
+            currentFontSize += step;
+            if (currentFontSize < 14) currentFontSize = 14;
+            if (currentFontSize > 36) currentFontSize = 36;
+            document.getElementById('content-area').style.fontSize = currentFontSize + 'px';
+        }
+
+        async function fetchFileList() {
+            try {
+                // Tải danh sách file
+                const response = await fetch('files.json');
+                const files = await response.json();
+                renderNav(files);
+            } catch (error) {
+                console.error("Lỗi tải danh sách file:", error);
+                document.getElementById('nav-list').innerHTML = '<div class="nav-item">Lỗi tải dữ liệu. Cần chạy server.py!</div>';
+            }
+        }
+
+        function renderNav(files) {
+            const navList = document.getElementById('nav-list');
+            navList.innerHTML = '';
+            
+            files.forEach(file => {
+                const div = document.createElement('div');
+                div.className = 'nav-item';
+                
+                // Format name
+                let displayName = file.replace('.md', '');
+                if (displayName === 'novel_plan') displayName = '📚 Kịch Bản Tổng Thể';
+                else if (displayName.startsWith('chapter_')) displayName = '📖 Chương ' + parseInt(displayName.split('_')[1]);
+                
+                div.textContent = displayName;
+                div.onclick = () => {
+                    loadContent(file, div);
+                    // Đóng sidebar nếu đang trên mobile
+                    if(window.innerWidth <= 768) {
+                        toggleSidebar();
+                    }
+                };
+                navList.appendChild(div);
+            });
+            
+            // Auto load first chapter or plan if available
+            if(files.length > 0) {
+                // Try to find chapter 1, else load the first one
+                const chap1 = files.find(f => f === 'chapter_01.md') || files[0];
+                const itemDiv = Array.from(navList.children).find(d => d.textContent.includes('Chương 1')) || navList.children[0];
+                loadContent(chap1, itemDiv);
+            }
+        }
+
+        async function loadContent(filename, element) {
+            // Update active state
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            if (element) element.classList.add('active');
+
+            const contentDiv = document.getElementById('markdown-content');
+            contentDiv.innerHTML = '<div class="loading">Đang tải tiên khí...</div>';
+
+            try {
+                const response = await fetch('/chapters/' + filename);
+                if (!response.ok) throw new Error('Không tìm thấy file');
+                const text = await response.text();
+                
+                // Parse markdown
+                contentDiv.innerHTML = marked.parse(text);
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            } catch (error) {
+                console.error("Lỗi tải nội dung:", error);
+                contentDiv.innerHTML = '<h1>Lỗi Cảnh Giới</h1><p>Không thể tải chương này. Chắc tác giả đang bế quan!</p>';
+            }
+        }
+
+        // Init
+        fetchFileList();
+    </script>
+</body>
+</html>
