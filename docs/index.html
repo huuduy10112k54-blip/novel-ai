@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đại Đạo Vô Tâm - Sát Trư Nhân</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --bg-secondary: #ffffff;
+            --text-color: #333333;
+            --text-muted: #777777;
+            --accent-color: #2b4969; /* TruyenFull blue/dark */
+            --accent-hover: #1b2e42;
+            --border-color: #e5e5e5;
+            --badge-bg: #28a745;
+            --badge-text: #fff;
+        }
+
+        /* Dark mode for reading view */
+        .dark-reading {
+            --bg-color: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-color: #e0e0e0;
+            --border-color: #333;
+            --nav-bg: rgba(30, 30, 30, 0.95);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* ----- TOP GLOBAL NAV (TruyenFull Style) ----- */
+        .global-header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .header-menu {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        .search-bar {
+            display: flex;
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 2px 5px;
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            width: 200px;
+        }
+        .search-bar button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        /* ----- VIEW CONTROLLER ----- */
+        .view { display: none; }
+        .view.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            display: inline-block;
+        }
+
+        /* ----- GLOBAL HOME VIEW ----- */
+        .novel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .novel-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
+        }
+        .novel-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .novel-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .novel-card-info {
+            padding: 10px;
+            text-align: center;
+        }
+        .novel-card-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: -30px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 30px;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* ----- INTRO VIEW ----- */
+        .novel-header-intro {
+            display: flex;
+            gap: 30px;
+            background: var(--bg-secondary);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .novel-cover { width: 220px; flex-shrink: 0; position: relative;}
+        .novel-cover img {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            padding: 3px;
+            display: block;
+        }
+        .novel-info h1 {
+            margin: 0 0 15px 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        .info-list { list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 15px;}
+        .info-list li { margin-bottom: 8px; display: flex; }
+        .info-list li strong { width: 100px; display: inline-block; flex-shrink: 0; }
+        
+        .novel-summary-box {
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            color: #555;
+            font-size: 15px;
+        }
+
+        .chapter-list-section {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .chapter-item {
+            display: block;
+            padding: 8px 10px;
+            border-bottom: 1px dashed var(--border-color);
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .chapter-item:hover {
+            color: var(--accent-color);
+            background: #f9f9f9;
+        }
+
+        /* ----- READING VIEW ----- */
+        .reader-nav {
+            background: #e8e8e8;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .dark-reading .reader-nav { background: var(--nav-bg); border-color: var(--border-color); }
+        .reader-nav.bottom { top: auto; bottom: 0; border-bottom: none; border-top: 1px solid #ddd; }
+        .dark-reading .reader-nav.bottom { border-top-color: var(--border-color); }
+
+        .btn {
+            background: var(--bg-secondary);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .btn:hover:not(:disabled) { background: #dcdcdc; }
+        .dark-reading .btn:hover:not(:disabled) { background: #333; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .chapter-select {
+            padding: 6px;
+            background: var(--bg-secondary);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+            max-width: 200px;
+        }
+
+        .btn-home { position: absolute; left: 20px; font-weight: bold;}
+        .btn-tools { position: absolute; right: 20px; display: flex; gap: 5px; }
+
+        #reading-content-area {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-size: 22px; 
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            transition: font-size 0.2s;
+            line-height: 1.8;
+        }
+        
+        #reading-content-area h1 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+        }
+        .dark-reading #reading-content-area h1 { color: #8b5cf6; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header-menu, .search-bar { display: none; }
+            .novel-header-intro { flex-direction: column; align-items: center; }
+            .novel-cover { width: 150px; }
+            .btn-home span, .btn span { display: none; }
+            .reader-nav { padding: 10px 5px; justify-content: center; }
+            .chapter-select { max-width: 150px; }
+        }
+        .loading { text-align: center; padding: 50px 0; color: var(--accent-color); }
+    </style>
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="global-header">
+        <div class="header-inner">
+            <div class="logo" onclick="localStorage.removeItem('currentChapter'); showView('global-home-view')">📖 Duy Nghịch Truyện</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MÀN HÌNH 0: GLOBAL HOME VIEW -->
+    <div id="global-home-view" class="view active">
+        <div class="container">
+            <h2 class="section-title">TRUYỆN HOT 🔥</h2>
+            <div class="novel-grid" id="novel-grid">
+                <div class="loading">Đang tải danh sách truyện...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÀN HÌNH 1: INTRO VIEW -->
+    <div id="intro-view" class="view">
+        <div class="container">
+            <div class="novel-header-intro">
+                <div class="novel-cover">
+                    <img id="intro-cover" src="cover.png" alt="Ảnh Bìa" onerror="this.src='https://via.placeholder.com/250x350/e0e0e0/333?text=Cover'">
+                </div>
+                <div class="novel-info">
+                    <h1 id="intro-title">Tên Truyện</h1>
+                    <ul class="info-list">
+                        <li><strong>Tác giả:</strong> <span id="intro-author">Tác Giả</span></li>
+                        <li><strong>Thể loại:</strong> <span id="intro-tags">Thể loại</span></li>
+                        <li><strong>Trạng thái:</strong> <span id="intro-status">Trạng thái</span></li>
+                    </ul>
+                    <div class="novel-summary-box">
+                        <p><strong>Tóm tắt truyện:</strong></p>
+                        <div id="intro-summary">Đang tải tóm tắt...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-list-section">
+                <h2 class="section-title" style="font-size: 16px;">DANH SÁCH CHƯƠNG</h2>
+                <div id="chapter-grid" class="chapter-grid">
+                    <div class="loading">Đang tải danh sách chương...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÀN HÌNH 2: READING VIEW -->
+    <div id="reading-view" class="view">
+        <!-- Top Nav -->
+        <div class="reader-nav">
+            <button class="btn btn-home" onclick="showIntroView(currentNovelId)" title="Quay lại giới thiệu">
+                🏠 <span>Giới thiệu</span>
+            </button>
+            <button class="btn" id="btn-prev-top" onclick="navigateChapter(-1)">◀ <span>Chương trước</span></button>
+            <select class="chapter-select" id="chapter-select-top" onchange="loadChapter(this.value)"></select>
+            <button class="btn" id="btn-next-top" onclick="navigateChapter(1)"><span>Chương sau</span> ▶</button>
+            <div class="btn-tools">
+                <button class="btn" id="btn-tts" onclick="toggleTTS()" title="Đọc tự động">🔊</button>
+                <button class="btn" onclick="toggleTheme()" title="Giao diện Tối/Sáng">🌙</button>
+                <button class="btn" onclick="changeFontSize(-2)" title="Thu nhỏ chữ">A-</button>
+                <button class="btn" onclick="changeFontSize(2)" title="Phóng to chữ">A+</button>
+            </div>
+        </div>
+
+        <div id="reading-content-area">
+            <div id="markdown-content"></div>
+        </div>
+
+        <!-- Bottom Nav -->
+        <div class="reader-nav bottom">
+            <button class="btn" id="btn-prev-bottom" onclick="navigateChapter(-1)">◀ <span>Chương trước</span></button>
+            <select class="chapter-select" id="chapter-select-bottom" onchange="loadChapter(this.value)"></select>
+            <button class="btn" id="btn-next-bottom" onclick="navigateChapter(1)"><span>Chương sau</span> ▶</button>
+        </div>
+    </div>
+
+    <script>
+        let novelsData = [];
+        let currentNovelId = null;
+        let allChapters = [];
+        let chapterCache = {};
+        let currentChapterIndex = -1;
+        let fontSize = 22;
+        let isSpeakingTTS = false;
+        let isPausedTTS = false;
+        let speechUtterance = null;
+
+        function toggleTTS() {
+            if (window.speechSynthesis.speaking) {
+                if (window.speechSynthesis.paused) {
+                    window.speechSynthesis.resume();
+                    isPausedTTS = false;
+                    document.getElementById('btn-tts').textContent = '⏸️';
+                    document.getElementById('btn-tts').title = 'Tạm dừng';
+                } else {
+                    window.speechSynthesis.pause();
+                    isPausedTTS = true;
+                    document.getElementById('btn-tts').textContent = '▶️';
+                    document.getElementById('btn-tts').title = 'Tiếp tục đọc';
+                }
+                return;
+            }
+
+            const contentDiv = document.getElementById('markdown-content');
+            if (!contentDiv) return;
+            
+            let text = contentDiv.innerText;
+            if (!text || text.trim() === '') return;
+
+            window.speechSynthesis.cancel();
+            
+            speechUtterance = new SpeechSynthesisUtterance(text);
+            speechUtterance.lang = 'vi-VN';
+            speechUtterance.rate = 1.0;
+            
+            speechUtterance.onend = function() {
+                isSpeakingTTS = false;
+                isPausedTTS = false;
+                document.getElementById('btn-tts').textContent = '🔊';
+                document.getElementById('btn-tts').title = 'Đọc tự động';
+            };
+
+            speechUtterance.onerror = function() {
+                isSpeakingTTS = false;
+                isPausedTTS = false;
+                document.getElementById('btn-tts').textContent = '🔊';
+                document.getElementById('btn-tts').title = 'Đọc tự động';
+            };
+
+            window.speechSynthesis.speak(speechUtterance);
+            isSpeakingTTS = true;
+            isPausedTTS = false;
+            document.getElementById('btn-tts').textContent = '⏸️';
+            document.getElementById('btn-tts').title = 'Tạm dừng';
+        }
+
+        function stopTTS() {
+            window.speechSynthesis.cancel();
+            isSpeakingTTS = false;
+            isPausedTTS = false;
+            const btn = document.getElementById('btn-tts');
+            if(btn) {
+                btn.textContent = '🔊';
+                btn.title = 'Đọc tự động';
+            }
+        }
+
+        function showView(viewId) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            window.scrollTo(0, 0);
+            
+            // Xử lý giao diện nền đen cho Reading View nếu được kích hoạt
+            if(viewId === 'reading-view') {
+                document.body.classList.add('reading-mode');
+            } else {
+                document.body.classList.remove('reading-mode');
+            }
+        }
+
+        function showIntroView(novelId) {
+            stopTTS();
+            
+            if (novelId) {
+                currentNovelId = novelId;
+                const novel = novelsData.find(n => n.id === novelId);
+                if (novel) {
+                    document.getElementById('intro-title').innerText = novel.title;
+                    document.getElementById('intro-author').innerText = novel.author;
+                    document.getElementById('intro-tags').innerText = novel.tags;
+                    document.getElementById('intro-status').innerText = novel.status;
+                    document.getElementById('intro-summary').innerText = novel.summary;
+                    document.getElementById('intro-cover').src = novel.cover;
+                    
+                    // Fetch chapters for this novel
+                    fetchChapters(novelId);
+                }
+            }
+            
+            showView('intro-view');
+            document.body.classList.remove('dark-reading'); // Trả về giao diện sáng
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-reading');
+        }
+
+        function changeFontSize(step) {
+            fontSize += step;
+            if (fontSize < 14) fontSize = 14;
+            if (fontSize > 40) fontSize = 40;
+            document.getElementById('reading-content-area').style.fontSize = fontSize + 'px';
+        }
+
+        async function fetchNovels() {
+            try {
+                const res = await fetch('api/novels.json');
+                novelsData = await res.json();
+                
+                const grid = document.getElementById('novel-grid');
+                grid.innerHTML = '';
+                
+                novelsData.forEach(novel => {
+                    const div = document.createElement('div');
+                    div.className = 'novel-card';
+                    div.onclick = () => showIntroView(novel.id);
+                    
+                    div.innerHTML = `
+                        <div class="badge">${novel.status}</div>
+                        <img src="${novel.cover}" alt="${novel.title}" onerror="this.src='https://via.placeholder.com/200x300/e0e0e0/333?text=Cover'">
+                        <div class="novel-card-info">
+                            <div class="novel-card-title">${novel.title}</div>
+                        </div>
+                    `;
+                    grid.appendChild(div);
+                });
+            } catch (err) {
+                console.error(err);
+                document.getElementById('novel-grid').innerHTML = '<div style="color:red">Lỗi tải dữ liệu truyện.</div>';
+            }
+        }
+
+        async function fetchChapters(novelId) {
+            try {
+                document.getElementById('chapter-grid').innerHTML = '<div class="loading">Đang tải danh sách chương...</div>';
+                const res = await fetch('api/files_' + novelId + '.json');
+                const files = await res.json();
+                allChapters = files;
+                renderChapterLists();
+                
+                // Khôi phục chương đang đọc (nếu có)
+                const savedChapter = localStorage.getItem('currentChapter_' + novelId);
+                if (savedChapter && allChapters.includes(savedChapter)) {
+                    // Do not auto-load chapter, let the user click it from intro, or auto-load if you prefer
+                    // loadChapter(savedChapter);
+                }
+            } catch (err) {
+                console.error(err);
+                document.getElementById('chapter-grid').innerHTML = '<div style="color:red">Lỗi tải danh sách chương.</div>';
+            }
+        }
+
+        function formatChapterName(filename) {
+            const match = filename.match(/\d+/);
+            const num = match ? parseInt(match[0], 10) : '?';
+            return 'Chương ' + num;
+        }
+
+        function renderChapterLists() {
+            const grid = document.getElementById('chapter-grid');
+            const selectTop = document.getElementById('chapter-select-top');
+            const selectBottom = document.getElementById('chapter-select-bottom');
+            
+            grid.innerHTML = '';
+            selectTop.innerHTML = '';
+            selectBottom.innerHTML = '';
+
+            allChapters.forEach((file, index) => {
+                let displayName = formatChapterName(file);
+
+                // Grid (Intro View)
+                const div = document.createElement('div');
+                div.className = 'chapter-item';
+                div.textContent = '➤ ' + displayName;
+                
+                // Đánh dấu nếu là chương đang đọc dở
+                const savedChapter = localStorage.getItem('currentChapter_' + currentNovelId);
+                if (savedChapter === file) {
+                    div.style.color = 'var(--accent-color)';
+                    div.style.fontWeight = 'bold';
+                    div.textContent = '★ ' + displayName + ' (Đang đọc)';
+                }
+                
+                div.onclick = () => loadChapter(file);
+                grid.appendChild(div);
+
+                // Selects
+                selectTop.add(new Option(displayName, file));
+                selectBottom.add(new Option(displayName, file));
+            });
+        }
+
+        function preloadAdjacent(index) {
+            const nextIdx = index + 1;
+            const prevIdx = index - 1;
+            if (nextIdx < allChapters.length && !chapterCache[allChapters[nextIdx]]) {
+                fetch('/files/' + allChapters[nextIdx]).then(res => res.text()).then(text => chapterCache[allChapters[nextIdx]] = text).catch(e => console.error(e));
+            }
+            if (prevIdx >= 0 && !chapterCache[allChapters[prevIdx]]) {
+                fetch('/files/' + allChapters[prevIdx]).then(res => res.text()).then(text => chapterCache[allChapters[prevIdx]] = text).catch(e => console.error(e));
+            }
+        }
+
+        async function loadChapter(filename) {
+            const index = allChapters.indexOf(filename);
+            if (index === -1) return;
+            
+            // Lưu trạng thái
+            localStorage.setItem('currentChapter_' + currentNovelId, filename);
+            
+            stopTTS();
+
+            currentChapterIndex = index;
+            showView('reading-view');
+            
+            document.getElementById('chapter-select-top').value = filename;
+            document.getElementById('chapter-select-bottom').value = filename;
+            
+            const isFirst = index === 0;
+            const isLast = index === allChapters.length - 1;
+            document.getElementById('btn-prev-top').disabled = isFirst;
+            document.getElementById('btn-prev-bottom').disabled = isFirst;
+            document.getElementById('btn-next-top').disabled = isLast;
+            document.getElementById('btn-next-bottom').disabled = isLast;
+
+            const contentDiv = document.getElementById('markdown-content');
+
+            if (chapterCache[filename]) {
+                contentDiv.innerHTML = marked.parse(chapterCache[filename]);
+                window.scrollTo(0, 0);
+                preloadAdjacent(index);
+                return;
+            }
+
+            contentDiv.innerHTML = '<div class="loading">Đang tải nội dung...</div>';
+
+            try {
+                const res = await fetch('files/' + filename);
+                if (!res.ok) throw new Error('Not found');
+                const text = await res.text();
+                chapterCache[filename] = text;
+                contentDiv.innerHTML = marked.parse(text);
+                window.scrollTo(0, 0);
+                preloadAdjacent(index);
+            } catch (err) {
+                console.error(err);
+                contentDiv.innerHTML = '<h1 style="text-align:center">Lỗi</h1><p style="text-align:center">Không thể tải chương này.</p>';
+            }
+        }
+
+        function navigateChapter(direction) {
+            const newIndex = currentChapterIndex + direction;
+            if (newIndex >= 0 && newIndex < allChapters.length) {
+                loadChapter(allChapters[newIndex]);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const readingView = document.getElementById('reading-view');
+            if (readingView && readingView.classList.contains('active')) {
+                if (e.key === 'ArrowRight') {
+                    navigateChapter(1);
+                } else if (e.key === 'ArrowLeft') {
+                    navigateChapter(-1);
+                }
+            }
+        });
+
+        // Init
+        fetchNovels();
+    </script>
+</body>
+</html>
