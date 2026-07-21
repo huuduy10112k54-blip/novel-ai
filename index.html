@@ -468,7 +468,7 @@
             }
         }
 
-        function showIntroView(novelId) {
+        function showIntroView(novelId, pushHistory = true) {
             stopTTS();
             
             if (novelId) {
@@ -489,6 +489,10 @@
             
             showView('intro-view');
             document.body.classList.remove('dark-reading'); // Trả về giao diện sáng
+            
+            if (pushHistory) {
+                history.pushState({view: 'intro-view', novelId: novelId}, '', '?view=intro&novel=' + novelId);
+            }
         }
 
         function toggleTheme() {
@@ -513,7 +517,7 @@
                 novelsData.forEach(novel => {
                     const div = document.createElement('div');
                     div.className = 'novel-card';
-                    div.onclick = () => showIntroView(novel.id);
+                    div.onclick = () => showIntroView(novel.id, true);
                     
                     div.innerHTML = `
                         <div class="badge">${novel.status}</div>
@@ -581,7 +585,7 @@
                     div.textContent = '★ ' + displayName + ' (Đang đọc)';
                 }
                 
-                div.onclick = () => loadChapter(file);
+                div.onclick = () => loadChapter(file, true);
                 grid.appendChild(div);
 
                 // Selects
@@ -601,7 +605,7 @@
             }
         }
 
-        async function loadChapter(filename) {
+        async function loadChapter(filename, pushHistory = true) {
             const index = allChapters.indexOf(filename);
             if (index === -1) return;
             
@@ -612,6 +616,10 @@
 
             currentChapterIndex = index;
             showView('reading-view');
+            
+            if (pushHistory) {
+                history.pushState({view: 'reading-view', novelId: currentNovelId, chapter: filename}, '', '?view=reading&novel=' + currentNovelId + '&chapter=' + filename);
+            }
             
             document.getElementById('chapter-select-top').value = filename;
             document.getElementById('chapter-select-bottom').value = filename;
@@ -667,8 +675,46 @@
             }
         });
 
+        // Xử lý nút Back của trình duyệt / vuốt 2 ngón
+        window.addEventListener('popstate', (event) => {
+            if (event.state) {
+                if (event.state.view === 'home-view') {
+                    stopTTS();
+                    showView('home-view');
+                } else if (event.state.view === 'intro-view') {
+                    showIntroView(event.state.novelId, false);
+                } else if (event.state.view === 'reading-view') {
+                    // Cần load chapter nhưng không push state
+                    // Vì currentNovelId có thể chưa được gán nếu vào thẳng bằng link
+                    if (!currentNovelId) currentNovelId = event.state.novelId;
+                    loadChapter(event.state.chapter, false);
+                }
+            } else {
+                stopTTS();
+                showView('home-view');
+            }
+        });
+
         // Init
-        fetchNovels();
+        fetchNovels().then(() => {
+            // Push trạng thái gốc là Home
+            history.replaceState({view: 'home-view'}, '', window.location.pathname);
+            
+            // Xử lý URL params nếu người dùng vào bằng link cụ thể
+            const urlParams = new URLSearchParams(window.location.search);
+            const view = urlParams.get('view');
+            const novel = urlParams.get('novel');
+            const chapter = urlParams.get('chapter');
+            
+            if (view === 'intro' && novel) {
+                showIntroView(novel, false);
+            } else if (view === 'reading' && novel && chapter) {
+                currentNovelId = novel;
+                fetchChapters(novel).then(() => {
+                    loadChapter(chapter, false);
+                });
+            }
+        });
     </script>
 </body>
 </html>
