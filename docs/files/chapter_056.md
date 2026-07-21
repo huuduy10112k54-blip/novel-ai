@@ -1,0 +1,55 @@
+# Chương 56: Liên Minh Tàn Dư
+
+Gió biển Hải Dương thổi phần phật qua những rặng phi lao, mang theo vị mặn chát của muối và mùi tanh nồng của cá tôm, tạt thẳng vào khuôn mặt vuông vức, sạm đen của Mạc Đăng Dung. Đứng trên lầu gác cao nhất của phủ đệ, phóng tầm mắt ra vùng biển mênh mông, vị mãnh tướng từng một thời hét ra lửa, làm nghiêng ngả cả triều đình nhà Lê, giờ đây lại mang một vẻ trầm ngâm, u uất đầy nguy hiểm.
+
+Trên chiếc bàn gỗ lim trước mặt ông, không phải là những tấm bản đồ quân sự quen thuộc hay binh khí sắc bén, mà là một tờ giấy bạc mỏng manh. Một tờ "Đông Kinh Ngân Phiếu" do chính phủ mới của Cố Duy vừa phát hành, tình báo của ông phải đánh đổi bằng cả sinh mạng mới len lỏi mang về được.
+
+Mạc Đăng Dung cầm tờ giấy lên, vân vê bằng hai ngón tay thô ráp đầy vết chai sạn vì cầm đao. Ông đã nghe những tin tức đáng sợ báo về từ Thăng Long. Bãi bỏ điền trang, lập Học viện Khoa học ứng dụng, phá bỏ nền tảng khoa cử cổ truyền, và nay là dùng những tờ giấy lộn này để thay thế vàng bạc đúc, hòng kiểm soát toàn bộ nền kinh tế quốc gia.
+
+Khác với những lão quan cổ hủ hở chút là đòi thắt cổ tự tử ở kinh thành, Mạc Đăng Dung là một con người vô cùng thực tế và tỉnh táo. Ông vươn lên từ thân phận một lính túc vệ thấp hèn nhờ sức mạnh, mưu lược và sự nhạy bén. Ông hiểu cặn kẽ quy luật của kẻ mạnh. Nhưng chính vì hiểu, ông mới cảm thấy một nỗi sợ hãi lạnh buốt chạy dọc sống lưng khi nhìn vào tờ ngân phiếu này.
+
+"Ngài đang nghĩ gì thưa minh công?" Mạc Ngọc Liễn, người cháu ruột đồng thời là tướng lĩnh thân tín nhất của Mạc Đăng Dung, bước tới. Ánh mắt gã cũng đầy sự lo âu khi nhìn tờ giấy. Ngọc Liễn tuy dũng mãnh vô song trên sa trường, nhưng trước những thủ đoạn chính trị và kinh tế kỳ dị của Cố Duy, y cảm thấy hoàn toàn mù mịt và bất lực.
+
+"Ta đang nghĩ..." Mạc Đăng Dung chậm rãi cất lời, giọng khàn khàn như tiếng kim loại rỉ sét cọ vào nhau. "... Rằng chúng ta đã đánh giá sai tên Cố Duy đó từ ngay từ đầu. Ban đầu, ta tưởng hắn chỉ là một tên phản tặc khao khát ngai vàng giống như bao kẻ khác. Ta tưởng hắn dựa vào dăm ba món hỏa khí sắc bén từ phương Bắc truyền sang để diễu võ dương oai, đoạt lấy ngai báu. Nhưng không. Ngọc Liễn à, ngai vàng đối với hắn chỉ là một món đồ chơi rỗng tuếch. Kẻ thù của chúng ta không muốn cướp ngôi, hắn muốn phá nát toàn bộ cái thế giới này, đập tan mọi trật tự tự ngàn đời."
+
+Mạc Đăng Dung đập mạnh tờ ngân phiếu xuống bàn, ánh mắt sắc như dao. "Ngươi xem! Cả ngàn năm qua, vương triều nào cai trị thiên hạ cũng phải dựa vào địa chủ, phú hào. Có đất là có lúa, có lúa là có người, có người là có quân. Nay hắn ngang nhiên bãi bỏ điền trang, lấy đất của vương hầu chia cho dân nghèo, rồi bắt dân nghèo dùng cái tờ giấy quỷ quái này để mua bán giao thương với hắn. Hắn kiểm soát nguồn cung ứng muối và thép, hai thứ sinh mạng của vạn dân. Hắn biến những quý tộc từng một thời hô phong hoán vũ thành những kẻ ăn mày không hơn không kém, bị vứt bỏ bên lề đường. Hắn dạy thứ tà thuật gọi là khoa học, khinh miệt nho giáo. Nếu để hắn tiếp tục xây dựng nhà nước đó..." 
+
+Giọng Mạc Đăng Dung trầm hẳn xuống, mang theo hơi lạnh của tử thần và bóng tối của sự tuyệt vọng. "Sẽ không còn khái niệm vua tôi, vương hầu tướng tướng. Cái trật tự phong kiến mà dòng họ Mạc chúng ta đang khao khát vươn lên đỉnh cao sẽ bị hắn nghiền nát thành tro bụi, không lưu lại chút dấu vết. Đây không còn là cuộc chiến tranh giành quyền lực. Đây là cuộc chiến sinh tồn. Của chúng ta, và của cả cái kỷ nguyên này."
+
+Mạc Ngọc Liễn toát mồ hôi hột, y chắp tay cúi đầu. "Minh công, hiện tại bên ngoài phủ đệ đang vô cùng hỗn loạn. Hàng trăm vị quan lại, đại địa chủ, quý tộc cựu trào từ Thăng Long đã bất chấp đường xa trốn chạy về đây. Họ bị lực lượng Bảo An Đoàn của Cố Duy tước hết tài sản, điền trang, lột sạch quan phục, phải dắt díu nhau chạy trốn như những kẻ vô gia cư. Họ đang quỳ gối gào khóc bên ngoài cửa phủ, cầu xin ngài hưng binh thảo phạt nghịch tặc, khôi phục lại trật tự cũ, cứu vớt lấy đạo lý thánh hiền."
+
+Mạc Đăng Dung nhếch mép cười khẩy, một nụ cười đầy khinh miệt. "Một lũ ký sinh trùng ăn hại. Khi chúng đang no say vơ vét thì xem thường ta là kẻ võ biền xuất thân hèn kém, chỉ biết bán mạng bảo vệ chúng. Nay mất hết xương tủy thì mới chạy đến khóc lóc cầu xin ta cứu mạng. Nhưng..." Ánh mắt ông ta chợt lóe lên một tia xảo quyệt và quyết đoán. "... Chúng vẫn còn tác dụng. Chúng mang theo sự căm hận bừng bừng. Sự căm hận là thứ nhiên liệu đốt cháy chiến trường mạnh mẽ nhất."
+
+"Truyền lệnh của ta," Mạc Đăng Dung vung tay áo, tư thế oai phong lẫm liệt, "Mở rộng cửa phủ, thiết đãi yến tiệc, nghênh đón tất cả bọn họ. Bất kể là quý tộc triều Lê, hay những cựu tướng lĩnh đang bất mãn. Đặc biệt..." Mạc Đăng Dung nheo mắt nhìn ra biển khơi sóng vỗ ầm ầm, nơi những cánh buồm đen thẫm ẩn hiện xa xa. "Cho sứ giả mang vàng bạc, lụa là, và gái đẹp ra các đảo ngoài khơi. Triệu tập tất cả các lộ hải tặc, những tay anh chị giang hồ cộm cán nhất vùng ven biển. Nói với chúng rằng, Cố Duy đã nắm trọn nguồn muối, nguồn thép, nếu Cố Duy cai trị toàn cõi, cái nghề buôn lậu và cướp biển của chúng sớm muộn cũng sẽ bị hắn càn quét đến tận sào huyệt. Kẻ địch của kẻ địch là bạn. Ta muốn tập hợp một liên minh vĩ đại nhất từ trước đến nay, một ngọn lửa cuối cùng của thế giới cũ để thiêu rụi cái nhà nước tân tiến chết tiệt của hắn."
+
+Ba ngày sau, tại đại sảnh phủ họ Mạc, một cảnh tượng kỳ lạ, mâu thuẫn và hỗn tạp chưa từng có trong lịch sử Đại Việt đã diễn ra. Nơi đây quy tụ một liên minh của những thế lực vốn đối lập nhau gay tiết nhất, từng chém giết nhau không từ thủ đoạn, nhưng giờ đây lại bị ép buộc phải đứng chung một chiến tuyến bởi một nỗi sợ hãi kinh hoàng mang tên Cố Duy.
+
+Bên trái đại sảnh là những vị cựu thần triều Lê khoác áo gấm thêu hoa, nét mặt nhợt nhạt, ánh mắt đầy vẻ oán hờn xen lẫn sự kinh hoàng chưa tan. Dẫn đầu bọn họ là những đại địa chủ, những bậc danh nho từng sở hữu hàng vạn mẫu ruộng, hàng ngàn đệ tử, nay chỉ còn hai bàn tay trắng, run rẩy bám víu vào chút tôn nghiêm sót lại.
+
+Bên phải là những tay tướng lĩnh trung thành với dòng họ Mạc, áo giáp sắt sáng loáng, đằng đằng sát khí. Họ là những chiến binh dạn dày sương gió, khao khát chém giết.
+
+Và ở ngay giữa sảnh, vắt chéo chân, gác giày lên bàn trên những chiếc ghế gỗ sang trọng là hàng chục thủ lĩnh hải tặc và sơn tặc. Chúng ăn mặc rách rưới nhưng điểm xuyết bằng những chuỗi ngọc trai to bằng quả nho cướp được, thân hình đầy sẹo, người sặc mùi rượu pha lẫn nước biển. Chúng liên tục cười nói ồn ào bằng những từ ngữ thô tục, kệch cỡm, làm bọn quan văn quý tộc hai bên phải nhăn mặt, lấy tay áo lụa che mũi kinh tởm.
+
+Sự ồn ào, chửi bới, móc mỉa lẫn nhau dâng cao, bầu không khí đặc quánh sự thù địch. Tưởng chừng như đại sảnh sắp biến thành một võ đài đẫm máu ngay lập tức. Cho đến khi Mạc Đăng Dung uy nghi bước ra.
+
+Ông mặc bộ giáp vảy cá đen nhánh, thanh đại đao nặng hàng chục cân vác trên vai. Tướng mạo uy dũng như một vị hung thần giáng thế, khí thế áp đảo tất thảy những kẻ có mặt. Ông bước từng bước vững chãi lên vị trí chủ tọa, cắm phập thanh đại đao xuống nền gạch đá hoa cương, tạo ra một tiếng nổ *đoàng* đinh tai nhức óc, tia lửa bắn tung tóe. Cả sảnh đường ngay lập tức im bặt, như bị một bàn tay vô hình bóp nghẹt cổ họng, không một ai dám ho he.
+
+Mạc Đăng Dung đưa đôi mắt rực lửa lướt qua đám tàn quân hỗn tạp của thế giới cũ. Ánh mắt ông dừng lại ở từng khuôn mặt, từ vị quan văn cao ngạo đang run rẩy đến tên cướp biển khát máu đang trố mắt kiêng dè.
+
+"Các vị có mặt ở đây ngày hôm nay," Mạc Đăng Dung cất giọng trầm hùng, vang vọng như chuông đồng đánh liên hồi, "Có người là kẻ thù cũ không đội trời chung của ta. Có người từng viết hịch mắng ta là nghịch tặc soán ngôi. Có kẻ lại chuyên đi cướp bóc thuyền buôn của nhà họ Mạc ta."
+
+Đám hải tặc có chút lúng túng nhìn nhau, còn đám cựu thần thì cúi gầm mặt, không giấu được vẻ hổ thẹn.
+
+"Nhưng hôm nay, mọi ân oán quá khứ đều bị ta xóa sổ!" Mạc Đăng Dung đấm mạnh tay lên mặt bàn gỗ lim, làm chiếc bàn khẽ nứt ra. "Vì chúng ta đang phải đối mặt với một con quái vật muốn ăn tươi nuốt sống tất cả chúng ta! Cố Duy! Hắn không chỉ muốn cướp ngai vàng. Hắn muốn tiêu diệt cái căn cốt của thế giới này. Các vị quan văn, hắn đốt sách của các vị, phá bỏ học hành, cướp đoạt ruộng đất của tổ tiên các vị rồi đem chia cho lũ dân đen thấp hèn. Các vị tướng quân, hắn dùng thứ ma quỷ súng đạn bọc thép, coi thường võ công và lòng dũng cảm của người lính chân chính. Còn các huynh đệ hải tặc, giang hồ, hắn lập ra luật pháp mới, thiết quân luật sắt máu, sớm muộn hắn sẽ phái hạm đội súng lớn ra biển dọn sạch các người khỏi vùng vịnh này, tước đi kế sinh nhai của các người!"
+
+Mạc Đăng Dung vung tay chỉ thẳng về hướng Bắc, nơi kinh kỳ Thăng Long đang ngự trị. "Hắn đang chế tạo một cỗ máy công nghiệp khổng lồ, và tất cả chúng ta, bất kể xuất thân từ vương hầu hay lục lâm, đều là những hòn đá cản đường sẽ bị cỗ máy đó nghiền nát. Trận chiến sắp tới không phải là trận chiến vì triều Lê, cũng không phải vì triều Mạc! Mà là trận chiến để bảo vệ sự tồn tại của chính chúng ta! Bảo vệ cái quyền được sống, được làm chủ, được tự do tung hoành trên mảnh đất này theo cách của cha ông ngàn đời nay!"
+
+Lời nói của Mạc Đăng Dung như một mũi khoan tẩm độc đâm trúng vào nỗi sợ hãi sâu kín nhất của mỗi người có mặt. Một tên thủ lĩnh hải tặc, khuôn mặt chằng chịt vết chém vắt ngang mắt, phẫn nộ đứng phắt dậy, vung thanh mã tấu rỉ máu lên trời: "Mạc công nói đúng! Lũ chó cậy có mấy khẩu súng thép mà dám coi trời bằng vung. Hạm đội ba trăm chiến thuyền của hòn Dấu xin nghe theo lệnh Mạc công, dìm chết lũ giặc Cố Duy xuống tận đáy sông Hồng!"
+
+"Bọn ta cũng không chịu ngồi yên nhìn gia sản tổ tông bao đời rơi vào tay lũ bá vơ! Xin tình nguyện quyên góp nốt số vàng bạc chôn giấu để Mạc công khao quân, sắm sửa giáp trụ!" Một vị cựu thần triều Lê căm phẫn gào lên, nước mắt chảy ròng ròng vì uất ức.
+
+Tinh thần chiến đấu bùng nổ. Nỗi sợ hãi và sự thù hận tột độ đã gắn kết những thế lực vốn không đội trời chung thành một khối thống nhất đen tối và cuồng nộ nhất. Mạc Đăng Dung nhìn xuống đám đông đang sục sôi gầm thét, trong lòng trào dâng một cảm giác thỏa mãn xen lẫn sự tàn nhẫn lạnh lùng. Ông biết, ván cược cuối cùng đã được thiết lập.
+
+"Tốt lắm!" Mạc Đăng Dung rút phăng thanh đại đao lên khỏi mặt đất, giương cao lên nóc nhà. "Ngày mai, ta sẽ chính thức lập đàn tế cờ! Tế cáo thiên địa! Bốn mươi vạn đại quân, kết hợp cả thủy bộ, mang theo toàn bộ xe công thành, hỏa khí, thuốc nổ, chúng ta sẽ kéo thẳng quân về Thăng Long. Lần này, không có thương lượng, không có bắt sống đầu hàng. Ta muốn cái đầu của Cố Duy, và muốn thiêu rụi toàn bộ những thứ máy móc tà đạo của hắn thành tro bụi!"
+
+Tiếng hò reo "Giết! Giết! Giết!" vang rền rung chuyển cả phủ đệ họ Mạc, truyền ra tận ngoài khơi xa, đánh thức cả những loài thủy quái dưới đáy biển sâu. Một trận đại chiến khốc liệt nhất lịch sử Đại Việt sắp sửa nổ ra. Một cuộc đụng độ quyết tử, không khoan nhượng giữa một Liên minh tàn dư của thế giới phong kiến đang thoi thóp, chống lại cỗ máy công nghiệp hóa không thể cản bước của kẻ mang tư tưởng thời đại mới - Cố Duy.
