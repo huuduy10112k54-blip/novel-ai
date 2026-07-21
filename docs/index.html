@@ -598,10 +598,10 @@
             const nextIdx = index + 1;
             const prevIdx = index - 1;
             if (nextIdx < allChapters.length && !chapterCache[allChapters[nextIdx]]) {
-                fetch('/files/' + allChapters[nextIdx]).then(res => res.text()).then(text => chapterCache[allChapters[nextIdx]] = text).catch(e => console.error(e));
+                fetch('files/' + allChapters[nextIdx]).then(res => res.text()).then(text => chapterCache[allChapters[nextIdx]] = text).catch(e => console.error(e));
             }
             if (prevIdx >= 0 && !chapterCache[allChapters[prevIdx]]) {
-                fetch('/files/' + allChapters[prevIdx]).then(res => res.text()).then(text => chapterCache[allChapters[prevIdx]] = text).catch(e => console.error(e));
+                fetch('files/' + allChapters[prevIdx]).then(res => res.text()).then(text => chapterCache[allChapters[prevIdx]] = text).catch(e => console.error(e));
             }
         }
 
@@ -678,27 +678,25 @@
         // Xử lý nút Back của trình duyệt / vuốt 2 ngón
         window.addEventListener('popstate', (event) => {
             if (event.state) {
-                if (event.state.view === 'home-view') {
+                if (event.state.view === 'global-home-view') {
                     stopTTS();
-                    showView('home-view');
+                    showView('global-home-view');
                 } else if (event.state.view === 'intro-view') {
                     showIntroView(event.state.novelId, false);
                 } else if (event.state.view === 'reading-view') {
-                    // Cần load chapter nhưng không push state
-                    // Vì currentNovelId có thể chưa được gán nếu vào thẳng bằng link
                     if (!currentNovelId) currentNovelId = event.state.novelId;
                     loadChapter(event.state.chapter, false);
                 }
             } else {
                 stopTTS();
-                showView('home-view');
+                showView('global-home-view');
             }
         });
 
         // Init
         fetchNovels().then(() => {
             // Push trạng thái gốc là Home
-            history.replaceState({view: 'home-view'}, '', window.location.pathname);
+            history.replaceState({view: 'global-home-view'}, '', window.location.pathname);
             
             // Xử lý URL params nếu người dùng vào bằng link cụ thể
             const urlParams = new URLSearchParams(window.location.search);
